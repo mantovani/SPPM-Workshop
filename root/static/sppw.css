@@ -4,7 +4,7 @@
     border: 0;
 }
 body {
-    background: #ffa500 url(sppw-background-stripes.png) no-repeat top right;
+    background: #ffa500 url(/static/images/site/sppw-background-stripes.png) no-repeat top right;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     text-align: center;
 }
@@ -18,7 +18,7 @@ body {
     -webkit-border-radius: 15px;
     -webkit-box-shadow: #000 0px 2px 2px 0px;
     text-align: left;
-    background: #1e90ff url(twitter-avatar3.png) no-repeat bottom left;
+    background: #1e90ff url(/static/images/site/twitter-avatar3.png) no-repeat bottom left;
 }
 #title h1 {
     letter-spacing: 2px;
