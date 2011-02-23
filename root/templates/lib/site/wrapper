@@ -1,0 +1,106 @@
+
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en"> 
+<head> 
+<title>II São Paulo Perl Workshop - Ágil na Vida Real</title> 
+<meta http-equiv="Content-Type" content="text/html;charset=utf8"/> 
+<meta name="author" content="São Paulo Perl Mongers"/> 
+<meta name="description" content="São Paulo Perl Workshop"/> 
+<meta name="keywords" content="são-paulo perl workshop"/> 
+<link rel="stylesheet" href="/static/sppw.css" type="text/css" /> 
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/> 
+<script type="text/javascript"> 
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21456218-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+    window.onload = function() {
+        var anchors=document.getElementsByTagName("a");
+        for (i=0;i<anchors.length;i++) {
+          anchors[i].onclick=trackClick;
+        }
+    };
+    function trackClick() {
+        _gaq.push([ '_trackEvent', 'Clicks', 'outbound', this.href]);
+        setTimeout('document.location = "' + this.href + '"', 100);
+    }
+ 
+</script> 
+</script> 
+</head> 
+<body> 
+  <div id="content"> 
+    <div id="title"> 
+      <img src="/static/images/site/camel.png" id="camel"> 
+        <div id="titlealign"> 
+          <h1>II São Paulo Perl Workshop</h1> 
+          <h2>7 de Maio, 2011</h2> 
+        </div> 
+    </div> 
+    <div id="panelcontainer"> 
+    <!--<div id="leftpanel">
+      <ul>
+        <li>Inscriçoes</li>
+        <li>Palestras</li>
+        <li>blah blah</li>
+      </ul>
+    </div>--> 
+    <div id="twitterbox"> 
+        <script src="http://widgets.twimg.com/j/2/widget.js"></script> 
+        <script> 
+        new TWTR.Widget({
+          version: 2,
+          type: 'search',
+          search: 'sppm_workshop',
+          interval: 6000,
+          title: 'São Paulo',
+          subject: 'Perl Workshop',
+          width: 250,
+          height: 300,
+          theme: {
+            shell: {
+              background: '#1e8fff',
+              color: '#ffffff'
+            },
+            tweets: {
+              background: '#ffa600',
+              color: '#000000',
+              links: '#444444'
+            }
+          },
+          features: {
+            scrollbar: false,
+            loop: true,
+            live: true,
+            hashtags: true,
+            timestamp: true,
+            avatars: true,
+            toptweets: true,
+            behavior: 'default'
+          }
+        }).render().start();
+        </script> 
+    </div> 
+    </div> 
+    <div id="maincontainer"> 
+    <div id="main"> 
+ 	[% content %]
+  </div> 
+    <div id="powered"> 
+      <img src="http://upload.wikimedia.org/wikipedia/commons/d/d7/CC-BY-ND-icon-88x31.png"/> 
+    </div> 
+    <div id="copy"> 
+      2011 <a href="http://sao-paulo.pm.org">São Paulo Perl Mongers</a> 
+    </div> 
+    </div> 
+</body> 
+</html> 
