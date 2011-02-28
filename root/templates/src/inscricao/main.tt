@@ -1,0 +1,6 @@
+<div align="center">
+	<h1>Inscrição</h1>
+	<h2>Autenticação</h2>
+	<p><a href="[% c.uri_for(c.controller('oauth').action_for('index')) %]">Twitter</a></p>
+	<p>Cadastrar</p>
+</div>

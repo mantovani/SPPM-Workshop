@@ -23,6 +23,8 @@ requires 'Catalyst::Plugin::Session';
 requires 'Catalyst::Plugin::Session::Store::FastMmap';
 requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Net::Twitter';
+requires 'PagSeguro';
+
 test_requires 'Test::More' => '0.88';
 catalyst;
 

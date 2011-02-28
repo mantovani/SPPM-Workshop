@@ -43,9 +43,7 @@ sub index : Path : Args(0) {
     }
     else {
         $c->res->redirect(
-            $c->uri_for(
-                $c->controller('Local')->action_for('dinamic'), 'main'
-            )
+            $c->uri_for( $c->controller('Inscricao')->action_for('cadastrar') )
         );
     }
 }
@@ -94,7 +92,7 @@ sub twitter_auth_callback : Chained('base') : PathPart('twitter_auth_callback')
         access_token_secret => $access_token_secret,
     };
     $c->res->redirect(
-        $c->uri_for( $c->controller('Local')->action_for('main') ) );
+        $c->uri_for( $c->controller('Inscricao')->action_for('cadastrar') ) );
 }
 
 =head1 AUTHOR
