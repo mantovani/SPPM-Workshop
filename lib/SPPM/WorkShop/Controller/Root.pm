@@ -29,9 +29,6 @@ The root page (/)
 sub index : Path : Args(0) {
     my ( $self, $c ) = @_;
 
-    # Hello World
-    $c->res->redirect(
-        $c->uri_for( $c->controller('Local')->action_for('dinamic'), 'main' ) );
 }
 
 =head2 default

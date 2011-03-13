@@ -1,4 +1,4 @@
-package SPPM::WorkShop::View::Web;
+package SPPM::WorkShop::View::TT;
 
 use strict;
 use warnings;
@@ -9,8 +9,8 @@ __PACKAGE__->config(
     TEMPLATE_EXTENSION => '.tt',
     render_die         => 1,
     INCLUDE_PATH       => [
-        SPPM::WorkShop->path_to( 'root', 'templates', 'src' ),
-        SPPM::WorkShop->path_to( 'root', 'templates', 'lib' ),
+        SPPM::WorkShop->path_to( 'root', 'src' ),
+        SPPM::WorkShop->path_to( 'root', 'lib' ),
     ],
     WRAPPER => 'site/wrapper',
 
