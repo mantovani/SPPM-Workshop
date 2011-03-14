@@ -4,7 +4,7 @@ use Moose;
 use Scalar::Util ();
 use DateTime;
 
-use base 'DBIx::Class::Core';
+extends 'DBIx::Class';
 use MooseX::Types::CPF qw(CPF);
 use MooseX::Types::Email qw(EmailAddress);
 
@@ -33,8 +33,6 @@ __PACKAGE__->add_columns(
         data_type => 'varchar',
         size      => 32,
     },
-    sexo         => { data_type => 'sexo' },
-    estado_civil => { data_type => 'estado_civil' },
     telefone     => {
         data_type => 'varchar',
         size      => 32
@@ -48,22 +46,26 @@ __PACKAGE__->add_columns(
         size          => 4,
         default_value => \'now()',
     },
-    plano_id => { data_type => 'integer' }
+    plano_id => { data_type => 'integer' },
+    endereco => {
+        data_type => 'varchar',
+        size => 255
+    },
+    bairro => { 
+        data_type => 'varchar',
+        size => 255
+    },
+    estado => {
+        data_type => 'varchar',
+        size => 2
+    },
+    cep => {
+        data_type => 'varchar',
+        size => 9
+    },
+
 
 );
-
-around data_nascimento => sub {
-    my $orig = shift;
-    my $self = shift;
-    return $self->$orig() unless @_;
-    my $type = Moose::Util::TypeConstraints::find_type_constraint('DateTime');
-    my ($value) = @_;
-    if ( my $coerced = $type->coerce($value) ) { $value = $coerced }
-    if ( my $error = $type->validate($value) ) {
-        $self->meta->throw_error($error);
-    }
-    return $self->$orig($value);
-};
 
 before email => sub {
     my $self = shift;
@@ -89,8 +91,8 @@ before cpf => sub {
 __PACKAGE__->set_primary_key('id');
 __PACKAGE__->add_unique_constraint( [qw/email cpf/] );
 
-__PACKAGE__->has_one( plano => 'SPPM::Workshop::Result::Plano' =>
-      { 'foreing.id' => 'self.plano_id' } );
+__PACKAGE__->belongs_to( plano => 'SPPM::Workshop::Result::Plano' =>
+      { 'foreign.id' => 'self.plano_id' } );
 
 sub age {
     my $self = shift;

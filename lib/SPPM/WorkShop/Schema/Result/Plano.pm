@@ -32,7 +32,7 @@ __PACKAGE__->set_primary_key('id');
 __PACKAGE__->add_unique_constraint( [qw/nome tt_ini tt_fim/] );
 
 __PACKAGE__->has_many( usuarios => 'SPPM::Workshop::Result::Usuario' =>
-      { 'foreing.plano_id' => 'self.id' } );
+      { 'foreign.plano_id' => 'self.id' } );
 
 1;
 

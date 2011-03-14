@@ -15,6 +15,7 @@ sub root : Chained('base') : PathPart('') : Args(0) {
 sub cadastro : Chained('base') : Args(0) {
     my ( $self, $c ) = @_;
     $c->forward('handle_POST');
+    sleep(3); # js tests.
     #$c->stash->{insert} = $c->model('DB::Usuario')->cadastrar($c->req->body_paramaters);
     $c->forward('handle_JSON');
 }
