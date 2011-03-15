@@ -27,6 +27,8 @@
 <p><label for="cep">CEP:</label>
 <input type="text" name="cep" id="cep" size="25"></p>
 
+<div id="endereco_detalhes" style="display: none">
+
 <p><label for="endereco">Endereço:</label>
 <input type="text" name="endereco" id="endereco" size="25"></p>
 
@@ -37,6 +39,8 @@
 <input type="text" name="estado" id="estado" size="25"></p>
 
 <p class="submit"><input type="submit" class="button" id="button" value=" Cadastrar "></p>
+
+</div>
 
 <div id="result"></div>
 

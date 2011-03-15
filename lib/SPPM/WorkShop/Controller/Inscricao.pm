@@ -7,6 +7,9 @@ BEGIN { extends 'Catalyst::Controller'; }
 
 sub base : Chained('/base') : PathPart('inscricao') : CaptureArgs(0) {
     my ( $self, $c ) = @_;
+    $c->stash(
+        planos => $c->model('DB::Planos');
+    );
 }
 
 sub root : Chained('base') : PathPart('') : Args(0) {
@@ -47,15 +50,14 @@ sub boleto : Chained('base') : Args(0) {
 
 sub handle_JSON : Private {
     my ( $self, $c ) = @_;
-    $c->forward('View::JSON');
-    $c->detach;
+    $c->detach('View::JSON');
 }
 
 sub handle_POST : Private {
     my ( $self, $c ) = @_;
 
     my $meth = $c->req->method;
-    $c->detach if $meth eq 'GET';
+    $c->detach('handle_JSON') if $meth eq 'GET';
     $c->detach('/error_404') unless $meth eq 'POST';
 }
 
