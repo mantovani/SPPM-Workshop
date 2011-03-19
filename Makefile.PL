@@ -14,6 +14,8 @@ requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Action::RenderView';
 requires 'Moose';
+requires 'MooseX::Types::CPF';
+requires 'MooseX::Types::Email';
 requires 'namespace::autoclean';
 requires
   'Config::General';  # This should reflect the config file format you've chosen
@@ -22,8 +24,7 @@ requires
 requires 'Catalyst::Plugin::Session';
 requires 'Catalyst::Plugin::Session::Store::FastMmap';
 requires 'Catalyst::Plugin::Session::State::Cookie';
-requires 'Net::Twitter';
-requires 'PagSeguro';
+requires 'Catalyst::View::JSON';
 
 test_requires 'Test::More' => '0.88';
 catalyst;
