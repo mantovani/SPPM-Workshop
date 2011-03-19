@@ -8,7 +8,7 @@ BEGIN { extends 'Catalyst::Controller'; }
 sub base : Chained('/base') : PathPart('inscricao') : CaptureArgs(0) {
     my ( $self, $c ) = @_;
     $c->stash(
-        planos => $c->model('DB::Planos');
+        planos => $c->model('DB::Planos')
     );
 }
 
