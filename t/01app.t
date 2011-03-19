@@ -5,6 +5,8 @@ use Test::More;
 
 use Catalyst::Test 'SPPM::WorkShop';
 
-ok( request('/')->is_success, 'Request should succeed' );
+ok(my($res, $ctx) = ctx_request('/'), 'Request should default to 404');
+is($ctx->action, 'default');
+is($ctx->controller, $ctx->controller('Root'));
 
 done_testing();
