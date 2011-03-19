@@ -12,8 +12,7 @@ sub base : Chained('/base') : PathPart('inscricao') : CaptureArgs(0) {
     );
 }
 
-sub root : Chained('base') : PathPart('') : Args(0) {
-}
+sub inscricao : Chained('base') : PathPart('') : Args(0) {}
 
 sub cadastro : Chained('base') : Args(0) {
     my ( $self, $c ) = @_;

@@ -20,28 +20,19 @@ SPPM::WorkShop::Controller::Root - Root Controller for SPPM::WorkShop
 
 =head1 METHODS
 
-=head2 index
-
-The root page (/)
-
-=cut
-
-sub index : Path : Args(0) {
-    my ( $self, $c ) = @_;
-
-}
-
 =head2 default
 
 Standard 404 error page
 
 =cut
 
-sub default : Path {
+sub default : Private {
     my ( $self, $c ) = @_;
     $c->response->body('Page not found');
     $c->response->status(404);
 }
+
+sub base : Chained('/') : PathPart('') : CaptureArgs(0) {}
 
 =head2 end
 
@@ -49,12 +40,7 @@ Attempt to render a view, if needed.
 
 =cut
 
-sub end : ActionClass('RenderView') {
-}
-
-sub base : Chained('/') : PathPart('') : CaptureArgs(0) {
-    my ( $self, $c ) = @_;
-}
+sub end : ActionClass('RenderView') {}
 
 =head1 AUTHOR
 
